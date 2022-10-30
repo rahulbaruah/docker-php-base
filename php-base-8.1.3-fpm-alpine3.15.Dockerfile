@@ -12,13 +12,18 @@ RUN apk update && apk add --no-cache \
     supervisor \
     libpng-dev \
     libzip-dev \
+    libxml2-dev \
     freetype-dev \
     $PHPIZE_DEPS \
-    libjpeg-turbo-dev
+    libjpeg-turbo-dev \
+    curl \
+    jpegoptim optipng pngquant gifsicle \
+    git
 
 # compile native PHP packages
 RUN docker-php-ext-install \
     gd \
+    exif \
     pcntl \
     bcmath \
     mysqli \
