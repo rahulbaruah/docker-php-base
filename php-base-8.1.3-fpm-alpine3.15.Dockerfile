@@ -31,9 +31,10 @@ RUN docker-php-ext-configure gd --with-freetype --with-jpeg
 # install additional packages from PECL
 RUN pecl install zip && docker-php-ext-enable zip \
     && pecl install igbinary && docker-php-ext-enable igbinary \
-    && yes | pecl install redis && docker-php-ext-enable redis \
-    && pecl install xdebug-3.1.6 && docker-php-ext-enable xdebug
+    && yes | pecl install redis && docker-php-ext-enable redis
 
+# For Xdebug
+# && pecl install xdebug-3.1.6 && docker-php-ext-enable xdebug
 
 # set composer related environment variables
 ENV PATH="/composer/vendor/bin:$PATH" \
